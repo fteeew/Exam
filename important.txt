@@ -1,0 +1,28 @@
+$('#myForm input').on('change', function() {
+			var check_value= $('input[name=qq]:checked', '#myForm').val(); 
+			var ans_num=$('#a_id').val();
+			//$('#d').text(check_value);
+			var ans=localStorage.getItem("answer")+check_value+',';
+			localStorage.setItem("answer",ans);
+			
+			if(check_value==ans_num)
+			{
+				mark=mark+1;
+				var c= parseInt(localStorage.getItem("m")|| 0);
+				localStorage.setItem("m", c + 1);
+				
+			}
+			else {
+
+				var c= parseInt(localStorage.getItem("m")|| 0);
+				localStorage.setItem("m",c + 0);
+				
+			}
+			if ($('input[name=qq]:checked', '#myForm').length <= 0) 
+			{
+				alert("No radio checked")
+			}
+			
+	
+		});	
+		
